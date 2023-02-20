@@ -16,3 +16,4 @@ use App\Http\Controllers\MovieController;
 
 Route::get('/', [MovieController::class,'index']);
 Route::get('/add-movie', [MovieController::class,'addMovie']);
+Route::post('/storeMovie', [MovieController::class,'store']);
