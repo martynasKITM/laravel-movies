@@ -33,4 +33,8 @@ class MovieController extends Controller
         ]);
         return redirect('/');
     }
+
+    public function showMovie(Movie $movie){
+        return view('pages.show-movie',compact('movie'));
+    }
 }
