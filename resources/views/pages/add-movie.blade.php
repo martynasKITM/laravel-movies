@@ -2,7 +2,7 @@
 @section('content')
     <h1 class="mt-4">Pridėti filmą</h1>
     @include('_partials/errors')
-    <form action="/storeMovie" method="post">
+    <form action="/storeMovie" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group m-1">
             <input type="text" name="title" class="form-control" placeholder="Filmo pavadinimas">
@@ -21,7 +21,7 @@
         </div>
         <div class="div-group m-1">
             <label>Plakatas</label>
-            <input type="file" class="form-control">
+            <input type="file" name="poster" class="form-control">
         </div>
         <div class="form-group m-1">
             <button type="submit" class="btn btn-primary">Saugoti</button>

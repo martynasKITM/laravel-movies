@@ -18,3 +18,6 @@ Route::get('/', [MovieController::class,'index']);
 Route::get('/add-movie', [MovieController::class,'addMovie']);
 Route::post('/storeMovie', [MovieController::class,'store']);
 Route::get('/movie/{movie}',[MovieController::class,'showMovie']);
+Route::get('/movie/edit/{movie}',[MovieController::class,'editMovie']);
+Route::post('/update/{movie}', [MovieController::class,'storeUpdate']);
+Route::get('/movie/delete/{movie}',[MovieController::class,'deleteMovie']);

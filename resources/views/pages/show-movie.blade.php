@@ -3,6 +3,7 @@
     <div class="card mt-5">
         <h1 class="mt-4">{{$movie->title}}</h1>
         <p>{{$movie->description}}</p>
+        <img src="{{asset('/storage/'.$movie->poster)}}" alt="">
         <h3>Kita informacija apie filmą:</h3>
         <ul>
             <li>Režisierius: {{$movie->director}}</li>
