@@ -8,6 +8,14 @@
             <input type="text" name="title" class="form-control" placeholder="Filmo pavadinimas">
         </div>
         <div class="form-group m-1">
+            <select name="category" class="form-control">
+                <option selected disabled>Pasirinkite kategoriją</option>
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->title}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group m-1">
             <input type="text" name="imdb" class="form-control" placeholder="IMDB reitingas">
         </div>
         <div class="form-group m-1">

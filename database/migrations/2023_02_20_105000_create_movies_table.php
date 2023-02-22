@@ -20,6 +20,7 @@ class CreateMoviesTable extends Migration
             $table->string('imdb');
             $table->date('created');
             $table->longText('description');
+            $table->foreignId('category_id');
             $table->string('poster')->nullable();
             $table->timestamps();
         });

@@ -86,4 +86,8 @@ class CategoryController extends Controller
 
         return redirect('/all-categories');
     }
+
+    public function showCategory(Category $category){
+        return view('pages.category', compact('category'));
+    }
 }
