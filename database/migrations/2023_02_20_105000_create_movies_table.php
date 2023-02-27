@@ -22,6 +22,7 @@ class CreateMoviesTable extends Migration
             $table->longText('description');
             $table->foreignId('category_id');
             $table->string('poster')->nullable();
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@ class Movie extends Model
 {
     use HasFactory;
 
-    protected $fillable =['title','director','imdb','created','description','poster','category_id'];
+    protected $fillable =['title','director','imdb','created','description','poster','category_id','user_id'];
 
     public function category(){
         return $this->belongsTo(Category::class);

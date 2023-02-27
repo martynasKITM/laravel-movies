@@ -33,3 +33,8 @@ Route::get('/category/delete/{category}', [CategoryController::class,'destroy'])
 Route::get('/category/edit/{category}', [CategoryController::class,'edit']);
 Route::post('/category/update/{category}', [CategoryController::class,'update']);
 Route::get('/category/{category}', [CategoryController::class,'showCategory']);
+
+Auth::routes();
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

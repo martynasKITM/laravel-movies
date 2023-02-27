@@ -25,6 +25,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('edit-movie',function($user, $movie){
+            return $user->id == $movie->user_id;
+        });
+
+        Gate::define('delete-movie',function($user, $movie){
+            return $user->id == $movie->user_id;
+        });
     }
 }

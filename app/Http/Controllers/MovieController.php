@@ -6,8 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Category;
 use File;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+
 class MovieController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth',['except'=>['index','showMovie','search']]);
+    }
+
+
     public function index(){
         $movies = Movie::all(); //return all records from movies table
         return view('pages.home', compact('movies')); //send to view
@@ -35,7 +44,8 @@ class MovieController extends Controller
            'description'=>request('description'),
            'category_id'=>request('category'),
            'created'=>request('created'),
-           'poster'=>$fileName
+           'poster'=>$fileName,
+           'user_id'=>Auth::id()
         ]);
         return redirect('/');
     }
@@ -45,6 +55,9 @@ class MovieController extends Controller
     }
 
     public function editMovie(Movie $movie){
+        if(Gate::denies('edit-movie',$movie)) {
+        dd('Tu neturi teises keisti ne savo filmo informacijos');
+        }
         return view('pages.edit-movie',compact('movie'));
     }
 
